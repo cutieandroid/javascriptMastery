@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ArryaTutorial</title>
+</head>
+<body>
+
+<script>
+
+    class person{
+        personName;
+        constructor(personName) {
+            this.personName=personName
+        }
+    }
+
+    const myarray=[10,20,30,40,50,60]
+    printer()
+    // console.log(myarray)
+    myarray.push(100)
+    printer()
+    myarray.splice(1,0,520)
+    printer()
+    function printer(){
+        myarray.forEach((number)=>{
+            console.log(number)
+        })
+    }
+    //filter function
+
+    const names=['harsh','mali','sanjivan'];
+    resultarray=names.filter((name)=>{
+        if(name==="harsh"){
+            return true;
+        }
+    })
+    console.log(resultarray)
+//map function , taken name from array and added it to an object
+    const newobjarray=names.map((name)=>{
+        tempperson = new person(name);
+        return tempperson;
+
+    })
+    console.log(newobjarray)
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        //we can add functions inside an object also an object inside an object
+        const object={
+            name:"harsh",
+            dob:"29102002"
+           
+        }
+        object.age=12
+        delete object.age;
+
+        console.log(object)
+        object.name="shiva"
+        console.log(object.name)
+
+        //we can access the properties of the objects with dot notaion and also by bracket notation
+       //use dot when property name is fixed and bracket when it is dynamic
+
+        console.log('result'+object.ollalala)
+
+        const product={
+            ratings:{
+                stars:10,
+                reviews:100
+
+            },
+            printer: function printer(){
+                console.log('this is a printer function')
+            }
+        }
+        product.printer()
+        console.log(product.ratings.stars)
+        let resp=JSON.stringify(product);
+        console.log("again printing json data")
+        console.log(resp);//json doesnt consider function as an property
+        console.log(product)//but js object considers
+        console.log(typeof resp)
+
+
+        //AutoBoxing
+        console.log('harshmali'.toUpperCase());
+        //in this name the name harsh mali is autobboxed as an object and 
+        //uppercase operation is performed on it
+    
+
+        
+        
+    </script>
+</head>
+<body>
+    
+
+    
+</body>
+</html>

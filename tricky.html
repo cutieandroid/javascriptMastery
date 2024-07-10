@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+
+        obj3={
+            message:"harsh mali",
+            price:500
+        }
+      //  let price=obj3.price;
+       // console.log(price);
+        //short cut is destructuring
+        const{price,message}=obj3;
+        console.log(price+message);
+        const obj1={
+            message:"hi this is harsh mali"
+        }
+        console.log(obj1.message);
+
+        obj1.message="harsh"
+        console.log(obj1.message);
+        obj1.newprop='harshharsh'
+        console.log(obj1)
+
+        //obj1 stores the reference to the object and not the object 
+        //hence the reference to the object is immutable not the properties inside the object
+
+
+        const obj2=obj1;
+        console.log(obj1)
+        //the above line of code shows that the obj2 doesnt store the obj1 along with its 
+        //properties but stores the reference to the obj1
+        obj2.message="obj2 changed the message";
+        console.log(obj1);
+        //here we changed the prop in obj2 but when we print obj1 the prop are changed there too
+        //also we cannot compare objects directly ujsing ===
+
+
+    
+       // obj1={
+        //    message:'huiuiuiuiu'
+       // }
+        console.log(obj1)
+        //the above code gives error because here we tried to change the reference 
+        //by reassigning the object
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

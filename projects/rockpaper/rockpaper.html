@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(25,25,25);
+        }
+        p{
+            color: white;
+        }
+        .moveicons{
+            height: 50px;
+
+        }
+        .movebutton{
+            height: 100px;
+            width: 100px;
+            border: 0px;
+            border-radius: 60px;
+            margin-right: 20px;
+
+        }
+        .resultimg{
+            height:30px ;
+            
+            
+        }
+        .resultimgbutton{
+            height: 50px;
+            width: 50px;
+            border: 0px;
+            border-radius: 60px;
+            margin-right: 5px;
+
+        }
+    </style>
+
+    <script>
+        //json. stringyfy converts the object into json string
+        //json.parse converts the json string into js object
+        let score;
+        function initLocalStorage() {
+            score = {
+                win: 0,
+                loss: 0,
+                tie: 0
+            }
+            localStorage.setItem('score', JSON.stringify(score));
+            return score;
+
+        }
+
+        score = JSON.parse(localStorage.getItem("score")) || initLocalStorage() //|| is called as default operator
+
+        let chance = {
+            youplayed: '',
+            computerplayed: ''
+        }
+        
+
+
+
+        function computer(player) {
+            let ran = Math.floor(Math.random() * 100);
+            let comp;
+            if (ran > 50) {
+                comp = 'r';
+            }
+            else if (ran <= 50 && ran >= 30) {
+                comp = 'p';
+            }
+            else {
+                comp = 's';
+            }
+            if (comp === player) {
+                chance.youplayed = player;
+                chance.computerplayed = comp;
+                tiefun();
+            }
+            else if (comp === 'r' && player === 'p') {
+                chance.youplayed = player;
+                chance.computerplayed = comp;
+                winfun();
+
+            }
+            else if (comp === 'r' && player === 's') {
+                chance.youplayed = player;
+                chance.computerplayed = comp;
+                lostfun();
+
+            }
+            else if (comp === 'p' && player == 'r') {
+                chance.youplayed = player;
+                chance.computerplayed = comp;
+                lostfun();
+
+            }
+            else if (comp === 'p' && player == 's') {
+                chance.youplayed = player;
+                chance.computerplayed = comp;
+                winfun();
+
+            }
+            else if (comp === 's' && player == 'p') {
+                chance.youplayed = player;
+                chance.computerplayed = comp;
+                lostfun();
+
+            }
+            else if (comp === 's' && player == 'r') {
+                chance.youplayed = player;
+                chance.computerplayed = comp;
+                winfun();
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <p>
+        WELCOME to rock, paper, scissor
+    </p>
+    <button onclick="
+        computer('r');
+        "
+        class="movebutton">
+        <img src="r.png" class="moveicons">
+    </button>
+
+    <button onclick="
+     computer('p')"
+     class="movebutton"
+     >
+        <img src="p.png" class="moveicons">
+    </button>
+
+    <button onclick="
+       computer('s')
+    "
+    class="movebutton"
+    >
+
+        <img src="s.png" class="moveicons">
+    </button>
+
+    <!--
+     <button onclick="
+    let localScore=JSON.parse(localStorage.getItem('score'));
+    alert(`win: ${localScore.win}  loss: ${localScore.loss}  tie:${localScore.tie}`)
+    ">
+     show score
+    </button>
+  -->
+
+    <button onclick="
+        initLocalStorage()
+        printscore();
+    ">
+        reset score
+    </button>
+
+    <p id="result"></p>
+    <p id="result_para">
+    </p>
+
+    <p id="score_para"></p>
+
+    <script>
+
+        function lostfun() {
+            score.loss += 1;
+            localStorage.setItem('score', JSON.stringify(score));
+            printscore();
+            result()
+            document.getElementById('result').innerHTML = 'You lost'
+            //alert('it was a loss');
+        }
+        function winfun() {
+            score.win += 1;
+            localStorage.setItem('score', JSON.stringify(score));
+            printscore();
+            result()
+            document.getElementById('result').innerHTML = 'You won'
+            // alert('it was a win');
+        }
+        function tiefun() {
+            score.tie += 1;
+            localStorage.setItem('score', JSON.stringify(score));
+            printscore();
+            result()
+            document.getElementById('result').innerHTML = 'Its a tiee'
+            //  alert('it was a tie');
+        }
+
+        function printscore() {
+            let localScore = JSON.parse(localStorage.getItem('score'));
+            document.querySelector('#score_para').innerHTML = `win: ${localScore.win}  loss: ${localScore.loss}  tie:${localScore.tie}`
+        }
+        function result() {
+            const { youplayed, computerplayed } = chance;
+            document.querySelector('#result_para').innerHTML = `you played <button class='resultimgbutton'><img class='resultimg' src='${youplayed}.png'></button> and computer played <button class='resultimgbutton'><img class='resultimg 'src='${computerplayed}.png'></button>`;
+
+        }
+        document.addEventListener("DOMContentLoaded", printscore())
+        
+
+    </script>
+
+</body>
+
+</html>

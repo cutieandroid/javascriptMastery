@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            padding:5px 5px;
+            font-size: 15px;
+        }
+        button{
+            background-color: green;
+            border: 0px;
+            padding: 8px 20px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+    </style>
+    
+</head>
+<body>
+    <p>
+        Amazon shipping calculator
+    </p>
+
+    <p>
+        order under $50 = +10 shipping
+    </p>
+
+    <p>
+        order over $50 = Free Shipping
+    </p>
+    
+    <input id="calculatePrice" type="number" placeholder="Add cost"> 
+    <button onclick="calculatePrice()">
+        calculate
+    </button>
+    <p id="result">
+
+    </p>
+
+
+    <script>
+        function calculatePrice(){
+            let inpelement=document.querySelector('#calculatePrice')
+           
+            if(!inpelement.value){
+                alert('please add the cost')
+                return;
+            }
+            const cost= new Number(inpelement.value)
+            let totalprice=cost<=50?cost+10:cost
+            console.log('<p>your total price is '+`${totalprice}`)
+            document.body.querySelector('#result').innerHTML="<p>your total price is "+`${totalprice}`
+        }
+    </script>
+    
+</body>
+</html>

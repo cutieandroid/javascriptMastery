@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sbutton{
+            background-color: black;
+            color: white;
+            border: 0px;
+            border-radius: 18px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-right: 15px;
+            padding-left: 15px;
+            font-weight: bold;
+            cursor: pointer;
+
+        }
+        .newclass{
+            background-color: rgb(220, 220, 220);
+            color: black;
+        }
+
+    </style>
+    <script>document.title='Youtube';
+    function buttonClick(){
+        if(document.querySelector('#subscribe_Button').innerHTML==='Subscribe'){
+            document.querySelector('#subscribe_Button').innerHTML='Subscribed'
+            document.querySelector('#subscribe_Button').classList.add('newclass')
+
+        }
+        else{
+            document.querySelector('#subscribe_Button').innerHTML='Subscribe'
+            document.querySelector("#subscribe_Button").classList.remove("newclass")
+
+        }
+    }</script>
+</head>
+<body>
+   <script>
+    document.body.innerHTML=
+    "<p>Youtube Subscribe Button</p> <button class  ='sbutton' id='subscribe_Button' onclick='buttonClick()'>Subscribe</button>"
+   </script>
+    
+</body>
+</html>

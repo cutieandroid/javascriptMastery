@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let cartqt=0;
+    </script>
+</head>
+<body>
+    <button onclick="
+        cartqt=cartqt+1;
+        alert('item added to th cart')
+        ">
+        Add to cart
+    </button>
+    <button onclick="alert(`the quantity of cart is: ${cartqt}`)">
+        Show quantity
+    </button>
+    <button onclick="
+    cartqt=cartqt+2;
+    alert(`the new cart quantity is :${cartqt}`)">
+        +2
+    </button>
+    <button onclick="
+    cartqt=cartqt+3;
+    alert(`the new cart quantity is :${cartqt}`)">
+        +3
+    </button>
+    <button onclick="
+    cartqt=0;
+    alert(`the new cart quantity is :${cartqt}`)">
+        reset cart
+    </button>
+    
+</body>
+</html>
